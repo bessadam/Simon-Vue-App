@@ -1,0 +1,304 @@
+body {
+  color: #000;
+  font-family: 'Avenir', sans-serif;
+  text-align: center;
+  background-color: white;
+  margin-top: 7.5%;
+}
+
+a {
+  color: #eee;
+}
+
+a:hover {
+  color: #fff;
+}
+
+.hell {
+  background-color: red;
+}
+
+.game-board {
+  width: 390px;
+  height: 390px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #212121;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 10px #222;
+  overflow: hidden;
+}
+
+.message-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 25%;
+  font-size: 2em;
+}
+
+.message-overlay.info {
+  background-color: rgba(232, 30, 99, 0.9);
+}
+
+.message-overlay.warn {
+  background-color: rgba(254, 87, 34, 0.9);
+}
+
+.message-overlay.success {
+  background-color: rgba(76, 175, 80, 0.9);
+}
+
+.buttons {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  height: 48%;
+  width: 48%;
+  opacity: 0.5;
+  transition: background 0.25s ease-out;
+}
+
+.button.green {
+  background-color: green;
+}
+
+.button.red {
+  background-color: red;
+  top: 0;
+  right: 0;
+}
+
+.button.blue {
+  background-color: blue;
+  bottom: 0;
+  right: 0;
+}
+
+.button.yellow {
+  background-color: yellow;
+  bottom: 0;
+  left: 0;
+}
+
+.button.active {
+  opacity: 1;
+}
+
+.button.green.active {
+  background-color: #8bc34a;
+}
+
+.button.red.active {
+  background-color: #ff5722;
+  top: 0;
+  right: 0;
+}
+
+.button.blue.active {
+  background-color: #64b5f6;
+  bottom: 0;
+  right: 0;
+}
+
+.button.yellow.active {
+  background-color: #fce83a;
+  bottom: 0;
+  left: 0;
+}
+
+.buttons.activeInputState .button {
+  cursor: pointer;
+}
+
+.buttons.activeInputState .button:hover {
+  opacity: 0.75;
+}
+
+.buttons.activeInputState .button:active {
+  opacity: 1;
+}
+
+.controls {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 25%;
+  bottom: 25%;
+  background-color: #212121;
+  border-radius: 50%;
+  color: #212121;
+}
+
+.controls .container {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  top: 6%;
+  padding: 4%;
+  background-color: #fefefe;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.controls .container h3 {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.controls .display {
+  padding: 5px 10px;
+  background-color: #263238;
+  box-shadow: inset 0 0 15px #000;
+  letter-spacing: 3px;
+  font-size: 22px;
+  font-weight: bold;
+  float: left;
+  margin: 0 4.5%;
+  position: relative;
+}
+
+.controls .display.active {
+  color: #f44336;
+}
+
+.controls .display:before {
+  content: 'Count';
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #222;
+}
+
+.push-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 5px solid #263238;
+  position: relative;
+  float: left;
+  margin: 0 4.5%;
+  box-shadow: 0 1px 2px #222;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+.push-button:hover {
+  box-shadow: 0 1px 7px #222;
+}
+
+.push-button:active {
+  box-shadow: 0 1px 2px #222;
+}
+
+.push-button.start {
+  background-color: #f44336;
+}
+
+.push-button.start:after {
+  content: 'Start';
+  position: absolute;
+  bottom: -80%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.push-button.strict {
+  background-color: #ffc107;
+}
+
+.push-button.strict:after {
+  content: 'Hard';
+  position: absolute;
+  bottom: -80%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.push-button::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #263238;
+  background-color: #263238;
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
+}
+
+.push-button.active::before {
+  background-color: #f34236;
+}
+
+.switch-button {
+  margin: 35px auto;
+  clear: both;
+  display: block;
+  width: 25%;
+  border: 5px solid #263238;
+  background-color: #263238;
+  position: relative;
+  height: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+.switch-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 16px;
+  background-color: #eee;
+}
+
+.switch-button.active::before {
+  left: auto;
+  right: 0;
+  background-color: #2196f3;
+}
+
+.switch-button:after {
+  content: 'Power';
+  position: absolute;
+  bottom: -120%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15px;
+  letter-spacing: 1px;
+}

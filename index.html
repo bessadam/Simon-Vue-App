@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simon The Game</title>
+    <link href="assets/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 class="brand">Simon The Game</h1>
+      <p>Ваш результат: <span>{{getActiveCount}}</span></p>
+      <div class="game-board">
+        <div class="buttons" :class="{'activeInputState': activeInputState}">
+          <div class="button green" :class="{'active': activeButton == 1 && running}" @click="handleButtonClick(1)"></div>
+          <div class="button red" :class="{'active': activeButton == 2 && running}" @click="handleButtonClick(2)"></div>
+          <div class="button yellow" :class="{'active': activeButton == 3 && running}" @click="handleButtonClick(3)"></div>
+          <div class="button blue" :class="{'active': activeButton == 4 && running}" @click="handleButtonClick(4)"></div>
+        </div>
+        <div class="controls">
+          <div class="container">
+            <h4>Simon</h4>
+            <div class="display" :class="{'active': active}">{{getActiveCount}}</div>
+            <div class="push-button start" :class="{'active': running}" @click="toggleRunning"></div>
+            <div class="push-button strict" :class="{'active': strict}" @click="toggleStrict"></div>
+            <br/>
+            <div class="switch-button" :class="{'active': active}" @click="toggleActive"></div>
+          </div>
+        </div>
+        <div class="message-overlay warn" v-show="message==='warn'" @click="message=null">
+          <h2>Неудача</h2>
+          <p>Попробуйте еще раз</p>
+        </div>
+        <div class="hide">
+          <audio v-for="(sound, index) in sounds" :ref="'sound' + index">
+            <source :src="sound" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./app.js"></script>
+  </body>
+
+</html>
